@@ -7,10 +7,10 @@
     android:orientation="vertical"
     android:padding="16dp"
     tools:context="com.example.somesh.myproject.QuestionActivity">
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:orientation="horizontal">
 
         <TextView
@@ -45,7 +45,8 @@
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="0dp"
+        android:layout_weight="3"
         app:cardCornerRadius="4dp"
         app:cardElevation="4dp">
 
@@ -60,8 +61,9 @@
 
     <RadioGroup
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp">
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_weight="2">
 
         <RadioButton
             android:layout_width="match_parent"
@@ -86,7 +88,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
         <ImageButton
             android:layout_width="60dp"
@@ -106,5 +109,4 @@
             android:background="@drawable/arrowbuttonstyle"
             android:src="@drawable/ic_arrow_forward_black_24dp" />
     </RelativeLayout>
-
 </LinearLayout>
