@@ -10,7 +10,7 @@
         android:id="@+id/QuizAppBar"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        android:theme="@style/ThemeOverlay.AppCompat.Light">
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/QuizCollapsingToolBar"
