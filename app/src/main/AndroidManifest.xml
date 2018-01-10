@@ -17,13 +17,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".QuizActivity"
+            android:name=".QuizInfoActivity"
             android:theme="@style/QuizTheme" />
         <activity
-            android:name=".QuizViewActivity"
+            android:name=".QuizCategoryActivity"
             android:theme="@style/QuizTheme" />
-        <activity android:name=".LIstActivity" />
-        <activity android:name=".QuestionActivity">
+        <activity android:name=".QuizSubCategoryActivity" />
+        <activity android:name=".QuizActivity">
 
         </activity>
     </application>

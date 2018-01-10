@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         QuizCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, QuizViewActivity.class));
+                startActivity(new Intent(MainActivity.this, QuizCategoryActivity.class));
             }
         });
     }
