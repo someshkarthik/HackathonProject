@@ -7,6 +7,7 @@
     android:orientation="vertical"
     android:padding="16dp"
     tools:context="com.example.somesh.myproject.QuizActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -51,12 +52,14 @@
         app:cardElevation="4dp">
 
         <TextView
+            android:id="@+id/question_tv_id"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="match_parent"
             android:layout_marginTop="16dp"
+            android:scrollbars="vertical"
+            android:text="@string/testQ"
             android:textAppearance="?android:textAppearanceMedium"
-            android:textColor="@android:color/black"
-            tools:text="Some Random Questions!!" />
+            android:textColor="@android:color/black" />
     </android.support.v7.widget.CardView>
 
     <RadioGroup
