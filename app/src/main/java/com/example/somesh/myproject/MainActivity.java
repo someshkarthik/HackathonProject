@@ -20,5 +20,12 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, QuizCategoryActivity.class));
             }
         });
+        CardView TopicsCardView = findViewById(R.id.TopicsCardView);
+        TopicsCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ListActivity.class));
+            }
+        });
     }
 }
