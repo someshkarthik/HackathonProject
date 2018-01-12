@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/category_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="20sp"
+        android:textAppearance="?android:textAppearanceLarge"
+        tools:text="Java" />
+
+</LinearLayout>

@@ -19,6 +19,15 @@
         <activity
             android:name=".QuizInfoActivity"
             android:theme="@style/QuizTheme" />
+
+        <provider
+            android:name=".database.CategoryProvider"
+            android:authorities="com.example.somesh.myproject"
+            android:exported="false" />
+        <provider
+            android:name=".database.CategoryQuestionProvider"
+            android:authorities="com.example.somesh.myproject"
+            android:exported="false" />
         <activity
             android:name=".QuizCategoryActivity"
             android:theme="@style/QuizTheme" />
