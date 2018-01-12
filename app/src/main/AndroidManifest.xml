@@ -24,7 +24,7 @@
             android:theme="@style/QuizTheme" />
         <activity android:name=".QuizSubCategoryActivity" />
         <activity android:name=".QuizActivity"></activity>
-        <activity android:name=".ListActivity"></activity>
+        <activity android:name=".TopicsListActivity"></activity>
     </application>
 
 </manifest>
