@@ -1,7 +1,7 @@
 package com.example.somesh.myproject;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 
 import com.example.somesh.myproject.category.Category;
@@ -15,6 +15,7 @@ public class TopicsListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_topics_list);
+
         ArrayList<Category> arrayList = new ArrayList<>();
         arrayList.add(new Category(R.drawable.c));
         arrayList.add(new Category(R.drawable.cpp));
@@ -22,7 +23,7 @@ public class TopicsListActivity extends AppCompatActivity {
         arrayList.add(new Category(R.drawable.python));
         arrayList.add(new Category(R.drawable.sql));
         CategoryAdapter CA = new CategoryAdapter(this, arrayList);
-        ListView lv =(ListView) findViewById(R.id.CommonListLayout);
+        ListView lv = findViewById(R.id.CommonListLayout);
         lv.setAdapter(CA);
     }
 }

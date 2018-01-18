@@ -8,6 +8,7 @@ import android.widget.TextView;
 public class QuizActivity extends AppCompatActivity {
 
     TextView question_tv;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
