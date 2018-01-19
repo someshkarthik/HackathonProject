@@ -12,6 +12,7 @@ public class QuizCategoryActivity extends AppCompatActivity implements View.OnCl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz_category);
+
         CardView aptitude_cardView = findViewById(R.id.aptitude_cardView_id);
         CardView cse_cardView = findViewById(R.id.cse_cardView_id);
         CardView mech_cardView = findViewById(R.id.mech_cardView_id);
@@ -29,6 +30,6 @@ public class QuizCategoryActivity extends AppCompatActivity implements View.OnCl
 
     @Override
     public void onClick(View v) {
-        startActivity(new Intent(QuizCategoryActivity.this, QuizSubCategoryActivity.class));
+        startActivity(new Intent(QuizCategoryActivity.this, DisplayCategoryActivity.class));
     }
 }

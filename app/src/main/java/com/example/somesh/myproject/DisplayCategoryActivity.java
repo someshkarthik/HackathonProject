@@ -20,35 +20,63 @@ import android.widget.ListView;
 
 import com.example.somesh.myproject.data.Contract.CategoryEntry;
 
-public class QuizSubCategoryActivity extends AppCompatActivity implements
+public class DisplayCategoryActivity extends AppCompatActivity implements View.OnClickListener,
         LoaderManager.LoaderCallbacks<Cursor> {
 
-    private final static int CATEGORY_LOADER = 0;
-    CategoryCursorAdapter categoryCursorAdapter;
-    ListView quiz_sub_category_lv;
+    //    Identifier for the category data loader
+    private static final int CATEGORY_LOADER = 0;
+
+    //    Adapter for the ListView
+    CategoryCursorAdapter mCursorAdapter;
+
+    ListView categories_list_lv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz_sub_category);
 
-        setTitle("Category");
-//        insertData();
-        quiz_sub_category_lv = findViewById(R.id.quiz_sub_category_lv_id);
-        categoryCursorAdapter = new CategoryCursorAdapter(this, null);
-        quiz_sub_category_lv.setAdapter(categoryCursorAdapter);
-        quiz_sub_category_lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        setTitle("Category Display");
+        categories_list_lv = findViewById(R.id.quiz_sub_category_lv_id);
+
+        // Setup an Adapter to create a list item for each row of subject data in the Cursor.
+        // There is no subject data yet (until the loader finishes) so pass in null for the Cursor.
+        mCursorAdapter = new CategoryCursorAdapter(this, null);
+        categories_list_lv.setAdapter(mCursorAdapter);
+
+        // Setup the item click listener
+        categories_list_lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                startActivity(new Intent(QuizSubCategoryActivity.this, QuizInfoActivity.class));
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                /*
+                //  Developer Mode - For Editing categories
+                // Create new intent to go to {@link EditActivity}
+                Intent intent = new Intent(DisplayCategoryActivity.this,
+                        AddCategoryActivity.class);
+                // Form the content URI that represents the specific subject that was clicked on,
+                // by appending the "id" (passed as input to this method) onto the
+                // {@link SubjectEntry#CONTENT_URI}.
+                // For example, the URI would be "content://com.example.android.subjects/subjects/2"
+                // if the subject with ID 2 was clicked on.
+                Uri currentCategoryUri = ContentUris.withAppendedId(CategoryEntry.CONTENT_URI, id);
+                // Set the URI on the data field of the intent
+                intent.setData(currentCategoryUri);
+                // Launch the {@link EditActivity} to display the data for the current subject.
+                startActivity(intent);
+                */
+                Intent intent = new Intent(DisplayCategoryActivity.this,
+                        QuizActivity.class);
+                startActivity(intent);
             }
         });
+
+        // Kick off the loader
         getLoaderManager().initLoader(CATEGORY_LOADER, null, this);
     }
 
     private void insertData() {
         ContentValues contentValues = new ContentValues();
-        contentValues.put(CategoryEntry.COLUMN_CATEGORY_NAME, "Java");
+        contentValues.put(CategoryEntry.COLUMN_CATEGORY_NAME, "Dummy Data");
         Uri uri = getContentResolver().insert(CategoryEntry.CONTENT_URI, contentValues);
     }
 
@@ -58,6 +86,11 @@ public class QuizSubCategoryActivity extends AppCompatActivity implements
                 null, null);
     }
 
+    @Override
+    public void onClick(View v) {
+        Intent intent = new Intent(this, AddCategoryActivity.class);
+        startActivity(intent);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -80,8 +113,13 @@ public class QuizSubCategoryActivity extends AppCompatActivity implements
                 insertData();
                 return true;
 
+            case R.id.action_insert_data:
+                Intent intent = new Intent(this, AddCategoryActivity.class);
+                startActivity(intent);
+                return true;
+
             case android.R.id.home:
-                NavUtils.navigateUpFromSameTask(QuizSubCategoryActivity.this);
+                NavUtils.navigateUpFromSameTask(DisplayCategoryActivity.this);
                 return true;
         }
         return super.onOptionsItemSelected(item);
@@ -114,28 +152,30 @@ public class QuizSubCategoryActivity extends AppCompatActivity implements
         alertDialog.show();
     }
 
-
     @Override
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
+        // Define a projection that specifies the columns from the table we care about.
         String[] projection = {
                 CategoryEntry._ID,
-                CategoryEntry.COLUMN_CATEGORY_NAME,
-        };
-        return new CursorLoader(this,
-                CategoryEntry.CONTENT_URI,
-                projection,
-                null,
-                null,
-                null);
+                CategoryEntry.COLUMN_CATEGORY_NAME};
+        // This loader will execute the ContentProvider's query method on a background thread
+        return new CursorLoader(this,   // Parent activity context
+                CategoryEntry.CONTENT_URI,   // Provider content URI to query
+                projection,             // Columns to include in the resulting Cursor
+                null,                   // No selection clause
+                null,                   // No selection arguments
+                null);                  // Default sort order
     }
 
     @Override
-    public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
-        categoryCursorAdapter.swapCursor(cursor);
+    public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+        // Update {@link SubjectCursorAdapter} with this new cursor containing updated subject data
+        mCursorAdapter.swapCursor(data);
     }
 
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
-        categoryCursorAdapter.swapCursor(null);
+        // Callback called when the data needs to be deleted
+        mCursorAdapter.swapCursor(null);
     }
 }

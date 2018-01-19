@@ -12,15 +12,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         setTitle("Home");
         CardView QuizCard = findViewById(R.id.QuizCardView);
+        CardView TopicsCardView = findViewById(R.id.TopicsCardView);
+
         QuizCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, QuizCategoryActivity.class));
             }
         });
-        CardView TopicsCardView = findViewById(R.id.TopicsCardView);
         TopicsCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
