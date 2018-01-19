@@ -32,7 +32,7 @@ public final class Contract {
 
     public static final class QuestionsEntry implements BaseColumns {
 
-        public static final Uri CONTENT_URI = Uri.withAppendedPath(BASE_CONTENT_URI, PATH_QUESTIONS);
+        public static final Uri CONTENT_URI_Q = Uri.withAppendedPath(BASE_CONTENT_URI, PATH_QUESTIONS);
 
         public static final String CONTENT_LIST_TYPE =
                 ContentResolver.CURSOR_DIR_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_QUESTIONS;

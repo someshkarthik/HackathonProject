@@ -4,4 +4,4 @@
     android:id="@+id/quiz_sub_category_lv_id"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.somesh.myproject.QuizSubCategoryActivity" />
+    tools:context="com.example.somesh.myproject.DisplayCategoryActivity" />

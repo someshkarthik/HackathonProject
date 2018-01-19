@@ -95,7 +95,7 @@ public class CategoryProvider extends ContentProvider {
 
         SQLiteDatabase database = mDbHelper.getWritableDatabase();
 
-        long id = database.insert(Contract.CategoryEntry.TABLE_NAME, null, values);
+        long id = database.insert(CategoryEntry.TABLE_NAME, null, values);
         if (id == -1) {
             return null;
         }
@@ -111,7 +111,7 @@ public class CategoryProvider extends ContentProvider {
 
         SQLiteDatabase database = mDbHelper.getWritableDatabase();
 
-        long id = database.insert(Contract.CategoryEntry.TABLE_NAME, null, values);
+        long id = database.insert(QuestionsEntry.TABLE_NAME, null, values);
         if (id == -1) {
             return null;
         }

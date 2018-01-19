@@ -22,11 +22,11 @@
         <activity
             android:name=".QuizCategoryActivity"
             android:theme="@style/QuizTheme" />
-        <activity android:name=".QuizSubCategoryActivity" />
         <activity android:name=".QuizActivity" />
         <activity android:name=".TopicsListActivity" />
         <activity android:name=".DisplayCategoryActivity" />
         <activity android:name=".AddCategoryActivity" />
+        <activity android:name=".AddQuestionActivity" />
 
         <provider
             android:name=".data.CategoryProvider"
