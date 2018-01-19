@@ -34,7 +34,7 @@ public class DisplayCategoryActivity extends AppCompatActivity implements View.O
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_quiz_sub_category);
+        setContentView(R.layout.activity_display_category);
 
         setTitle("Category Display");
         categories_list_lv = findViewById(R.id.quiz_sub_category_lv_id);
@@ -55,10 +55,10 @@ public class DisplayCategoryActivity extends AppCompatActivity implements View.O
                         AddCategoryActivity.class);
                 // Form the content URI that represents the specific subject that was clicked on,
                 // by appending the "id" (passed as input to this method) onto the
-                // {@link SubjectEntry#CONTENT_URI}.
+                // {@link SubjectEntry#CONTENT_URI_Q}.
                 // For example, the URI would be "content://com.example.android.subjects/subjects/2"
                 // if the subject with ID 2 was clicked on.
-                Uri currentCategoryUri = ContentUris.withAppendedId(CategoryEntry.CONTENT_URI, id);
+                Uri currentCategoryUri = ContentUris.withAppendedId(CategoryEntry.CONTENT_URI_Q, id);
                 // Set the URI on the data field of the intent
                 intent.setData(currentCategoryUri);
                 // Launch the {@link EditActivity} to display the data for the current subject.

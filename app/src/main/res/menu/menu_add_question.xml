@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?><!-- Options menu for DisplayActivity -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".DisplayActivity">
+
+    <item
+        android:id="@+id/action_insert_dummy_question"
+        android:title="Insert dummy question"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_insert_question"
+        android:title="Insert question"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_delete_all_questions"
+        android:title="Delete All"
+        app:showAsAction="never" />
+</menu>
